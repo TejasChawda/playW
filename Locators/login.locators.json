@@ -1,0 +1,16 @@
+{
+    "PLACE_HOLDERS": {
+        "USERNAME": "Username",
+        "PASSWORD": "Password"
+    },
+    "CSS": {
+        "SUBMIT_BUTTON": "button[type='submit']",
+        "PROFILE_DROPDOWN": ".oxd-userdropdown-tab"
+    },
+    "TEXT": {
+        "LOGOUT_BUTTON": "Logout"
+    },
+    "XPATH": {
+        "INVALID_CREDS": "//p[contains(.,'Invalid credentials')]"
+    }
+}

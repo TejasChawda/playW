@@ -1,0 +1,48 @@
+***********************************************
+
+DISCLAIMER :- Where ever there is a global config changes shown in this doc, please go to the
+playwright.config.js file and check it as it has been implemented
+
+***********************************************
+
+npx playwright test -> 
+
+This is to run the tests. It will take all the 
+test present in the folder mentioned in the playwright config and run
+them parallelly in the mentioned browser names in the config file.
+
+By default the tests run in headless mode
+
+________________________________________________________________________________________
+npx playwright test --headed -> 
+
+This is to run the tests in headed mode. It will take all the 
+test present in the folder mentioned in the playwright config and run
+them parallelly in the mentioned browser names in the config file.
+
+________________________________________________________________________________________
+npx playwright show-report ->
+
+This is to see the report of the latest run
+________________________________________________________________________________________
+To change the size of the browser when launched ->
+
+To do this we can do it in 2 ways
+
+- Global config level -> in playwright.config.js file, we can
+go to a specific browser config and set the viewport width and height.
+
+- Spec level -> in any spec file if we set it like given below
+
+test.use({
+    viewport: {
+        width: 1440,
+        height: 900,
+    },
+});
+
+This will apply it only to the specific spec level tests and not globally
+________________________________________________________________________________________
+To capture video, screenshot and trace ->
+
+To do this we have to enable it globally in playwright.config.js file
