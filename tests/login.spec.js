@@ -22,7 +22,7 @@ test("Login/Logout in the Dashboard", async ({ page }) => {
     await expect(page).toHaveURL(/login/);
 });
 
-test.only("Invalid Login in the Dashboard", async ({ page }) => {
+test("Invalid Login in the Dashboard", async ({ page }) => {
     // LOGIN
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
