@@ -10,7 +10,7 @@ test("Handling Iframes", async ({ page }) => {
     await page.waitForTimeout(5000);
 });
 
-test.only("Switching between tabs", async ({ browser }) => {
+test("Switching between tabs", async ({ browser }) => {
     const mainContext = await browser.newContext();
     const mainPage = await mainContext.newPage();
 
