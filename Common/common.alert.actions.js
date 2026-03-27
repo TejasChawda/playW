@@ -17,7 +17,6 @@ async function handleAlert(page, dialog) {
     return {
         dialogType: dialog.type(),
         dialogMessage: dialog.message(),
-        resultText: await page.locators(locators.XPATH.ALERT_RESULT_PARAGRAPH).textContent(),
     };
 }
 

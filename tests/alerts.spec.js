@@ -16,15 +16,17 @@ test("Alerts", async ({ page }) => {
             case "alert":
                 expect(responseObj.dialogType).toBe(alertType);
                 expect(responseObj.dialogMessage).toContain(alertType);
-                expect(responseObj.resultText).toContain(alertType);
+                expect(await page.locator(locators.XPATH.ALERT_RESULT_PARAGRAPH).textContent()).toContain(alertType);
                 break;
             case "confirm":
                 if (responseType === "accept") {
                     await d.accept();
-                    expect(responseObj.resultText).toContain("OK");
+                    expect(await page.locator(locators.XPATH.ALERT_RESULT_PARAGRAPH).textContent()).toContain("OK");
                 } else {
                     await d.dismiss();
-                    expect(responseObj.resultText).toContain("Cancel");
+                    expect(await page.locators(locators.XPATH.ALERT_RESULT_PARAGRAPH).textContent()).toContain(
+                        "Cancel",
+                    );
                 }
                 expect(responseObj.dialogType).toBe(alertType);
                 expect(responseObj.dialogMessage).toContain(alertType);
@@ -32,10 +34,12 @@ test("Alerts", async ({ page }) => {
             case "prompt":
                 if (responseType === "accept") {
                     await d.accept(responseText);
-                    expect(responseObj.resultText).toContain(responseText);
+                    expect(await page.locator(locators.XPATH.ALERT_RESULT_PARAGRAPH).textContent()).toContain(
+                        responseText,
+                    );
                 } else {
                     await d.dismiss();
-                    expect(responseObj.resultText).toBeNull();
+                    expect(await page.locator(locators.XPATH.ALERT_RESULT_PARAGRAPH).textContent()).toContain("null");
                 }
                 break;
         }
